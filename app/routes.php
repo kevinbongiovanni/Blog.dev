@@ -13,5 +13,67 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return 'Hello Codeup';
 });
+
+
+Route::get('parks', function() {
+	return View::make('parks');
+});
+
+Route::post('parks', function() {
+	return 'Which will you see???!?!?!?!?!?!one?!?!?!?';
+});
+
+Route::get('Say-hello/{name}', function($name) {
+	if ($name == 'Ben') {
+
+		return Redirect::to('http://bing.com');
+
+	} else {
+
+	return "Hello $name!";
+	}
+});
+
+
+
+Route::get('roll-dice/{guess}', function($guess)
+{
+	$randomNumber = rand(1,6);
+
+	return View::make('roll-dice')->with('randomNumber', $randomNumber)->with('guess', $guess);
+});
+
+
+
+Route::get('resume', 'HomeController@showResume');
+
+Route::get('submit', 'HomeController@showSubmit');
+
+Route::get('users', 'HomeController@showUsers');
+
+Route::get('portfolio', 'HomeController@showPortfolio');
+
+Route::resource('posts', 'PostsController');
+
+Route::get('login', 'HomeController@showLogin');
+
+Route::post('login', 'HomeController@doLogin');
+
+Route::get('logout', 'HomeController@doLogout');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,11 @@
 <?php
 
 class BaseController extends Controller {
+	public function __construct()
+	{
+		$this->beforeFilter('csrf', array('on' => array('post', 'delete', 'put')));
 
+	}
 	/**
 	 * Setup the layout used by the controller.
 	 *
